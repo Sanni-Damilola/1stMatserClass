@@ -11,11 +11,11 @@ app.use(express.json()).use(cors());
 
 // create a post
 app.post("/api/post", (req, res) => {
-  const { title, desc } = req.body;
+  const { title, description } = req.body;
 
   const creating = postSchema.create({
     title,
-    desc,
+    description,
   });
 
   res.status(201).json(creating);
@@ -28,7 +28,6 @@ app.get("/api/getone/:id", (req, res) => {
   res.status(201).json(getonePost);
 });
 
-
 // edit one post
 app.patch("/api/getone/:id", (req, res) => {
   const { title } = req.body;
@@ -40,15 +39,12 @@ app.patch("/api/getone/:id", (req, res) => {
   res.status(201).json(editPost);
 });
 
-
 // delete one post
 app.delete("/api/getone/:id", (req, res) => {
   const deleteOne = postSchema.findByIdAndDelete(req.params.id);
 
   res.status(201).json(deleteOne);
 });
-
-
 
 // getAll post
 app.get("/api/getall", (req, res) => {
