@@ -47,7 +47,7 @@ app.patch("/api/getone/:id", (req, res) => {
 
 // delete one post
 app.delete("/api/getone/:id", (req, res) => {
-  const deleteOne = postSchema.findByIdAndDelete(req.params.id);
+  const deleteOne = postSchema.findByIdAndRemove(req.params.id);
 
   res.status(201).json(deleteOne);
 });
