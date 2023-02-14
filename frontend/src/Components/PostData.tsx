@@ -27,6 +27,8 @@ const PostData = () => {
     mutationFn: deletOne,
   });
 
+  console.log("delete", deleteData);
+
   const handleSubmit = () => {
     posting.mutate({
       title,
