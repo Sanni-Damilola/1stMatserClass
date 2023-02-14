@@ -10,7 +10,7 @@ export const FetchPost = async () => {
 };
 export const FetchSinglePost = async (id: any) => {
   return axios
-    .get(`http://localhost:2001/api/getone/${id}`)
+    .get(`http://localhost:2001/api/getone//${id}`)
     .then((res) => res.data);
 };
 export const CreatingPostData = async ({ title, description }: IData) => {
