@@ -6,16 +6,16 @@ interface IData {
 }
 
 export const FetchPost = async () => {
-  return axios.get("http://localhost:2001/api/getone").then((res) => res.data);
+  return axios.get("http://localhost:2001/api/getall").then((res) => res.data);
 };
 export const FetchSinglePost = async (id: any) => {
   return axios
-    .get(`http://localhost:3400/api/getPost/${id}`)
+    .get(`http://localhost:2001/api/getone/${id}`)
     .then((res) => res.data);
 };
 export const CreatingPostData = async ({ title, description }: IData) => {
   return await axios
-    .post("http://localhost:3400/api/createPosts", {
+    .post("http://localhost:2001/api/post", {
       title,
       description,
     })
