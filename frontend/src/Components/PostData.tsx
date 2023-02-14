@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { CreatingPostData, deletOne, FetchPost } from "./Api";
+import { CreatingPostData, deletOne, FetchPost, updatPost } from "./Api";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -27,8 +27,6 @@ const PostData = () => {
     queryKey: ["post"],
     queryFn: deletOne,
   });
-
-  console.log("delete", deleteData);
 
   const handleSubmit = () => {
     posting.mutate({
