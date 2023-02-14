@@ -6,7 +6,7 @@ interface IData {
 }
 
 export const FetchPost = async () => {
-  return axios.get("http://localhost:2001/api/getPost").then((res) => res.data);
+  return axios.get("http://localhost:2001/api/getone").then((res) => res.data);
 };
 export const FetchSinglePost = async (id: any) => {
   return axios
