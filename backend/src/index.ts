@@ -28,9 +28,6 @@ app.get("/api/getone/:id", (req, res) => {
   res.status(201).json(getonePost);
 });
 
-app.listen(port, () => {
-  console.log("Done on", port);
-});
 
 // edit one post
 app.patch("/api/getone/:id", (req, res) => {
@@ -43,9 +40,6 @@ app.patch("/api/getone/:id", (req, res) => {
   res.status(201).json(editPost);
 });
 
-app.listen(port, () => {
-  console.log("Done on", port);
-});
 
 // delete one post
 app.delete("/api/getone/:id", (req, res) => {
@@ -54,9 +48,7 @@ app.delete("/api/getone/:id", (req, res) => {
   res.status(201).json(deleteOne);
 });
 
-app.listen(port, () => {
-  console.log("Done on", port);
-});
+
 
 // getAll post
 app.get("/api/getall", (req, res) => {
