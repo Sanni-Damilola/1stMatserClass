@@ -18,7 +18,6 @@ const PostData = () => {
         placeholder="add description"
         style={{ height: "100px", width: "300px", margin: "10px" }}
       ></textarea>
-
       <h2>All Post</h2>
     </div>
   );
