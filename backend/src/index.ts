@@ -35,7 +35,6 @@ app.get("/api/getone/:id", (req, res) => {
   res.status(201).json(getonePost);
 });
 
-// edit one post
 app.patch("/api/update/:id", (req, res) => {
   const { title } = req.body;
 
@@ -44,7 +43,7 @@ app.patch("/api/update/:id", (req, res) => {
   });
 
   res.status(201).json(editPost);
-});
+}); // edit one post
 
 app.delete("/api/deleteOne/:id", (req, res) => {
   const deleteOne = postSchema.findByIdAndRemove(req.params.id);
