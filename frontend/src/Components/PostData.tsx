@@ -23,9 +23,9 @@ const PostData = () => {
     },
   });
 
-  const deleteData = useMutation({
-    mutationFn: deletOne,
-   
+  const deleteData = useQuery({
+    queryKey: ["post"],
+    queryFn: deletOne,
   });
 
   console.log("delete", deleteData);
