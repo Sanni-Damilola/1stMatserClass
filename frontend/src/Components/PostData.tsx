@@ -85,8 +85,9 @@ const PostData = () => {
                 border: "1px solid silver",
               }}
             >
-              <div>{props?.title}</div>
-              <div>{props?.description}</div>
+              <div>{props?.title}</div> <br />
+              <div>{props?.description}</div> <br />
+              <button>delete</button>
             </div>
           </Link>
         ))}
