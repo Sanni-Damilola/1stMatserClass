@@ -1,5 +1,4 @@
-import express, { Application } from "express";
-import mongoose from "mongoose";
+import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import postSchema from "../Model/Model";
 
@@ -10,7 +9,7 @@ const app: Application = express();
 app.use(express.json()).use(cors());
 
 // create a post
-app.post("/api/post", (req, res) => {
+app.post("/api/post", (req: Request, res: Response) => {
   const { title, description } = req.body;
 
   const creating = postSchema.create({
@@ -21,14 +20,13 @@ app.post("/api/post", (req, res) => {
   res.status(201).json(creating);
 });
 
-// landing data
-app.all("/", (req, res) => {
+app.all("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "up and running",
   });
-});
+}); // landing message
 
-app.get("/api/getone/:id", (req, res) => {
+app.get("/api/getone/:id", (req: Request, res: Response) => {
   const getonePost = postSchema.findById(req.params.id);
 
   res.status(201).json(getonePost);
