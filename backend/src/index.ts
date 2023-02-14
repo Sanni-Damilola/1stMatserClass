@@ -46,19 +46,17 @@ app.patch("/api/update/:id", (req, res) => {
   res.status(201).json(editPost);
 });
 
-// delete one post
 app.delete("/api/deleteOne/:id", (req, res) => {
   const deleteOne = postSchema.findByIdAndRemove(req.params.id);
 
   res.status(201).json(deleteOne);
-});
+}); // delete one post
 
-// getAll post
 app.get("/api/getall", (req, res) => {
   const getAllPost = postSchema.find();
 
   res.status(200).json(getAllPost);
-});
+}); // getAll post
 
 app.delete("/api/deleteAll", (req, res) => {
   const deleteAll = postSchema.deleteMany();
@@ -69,4 +67,4 @@ app.delete("/api/deleteAll", (req, res) => {
 
 app.listen(port, () => {
   console.log("Done on", port);
-});
+}); // listening to post
