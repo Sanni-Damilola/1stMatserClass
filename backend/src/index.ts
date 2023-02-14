@@ -32,7 +32,7 @@ app.get("/api/getone/:id", (req: Request, res: Response) => {
   res.status(201).json(getonePost);
 }); // get one post
 
-app.patch("/api/update/:id", (req, res) => {
+app.patch("/api/update/:id", (req: Request, res: Response) => {
   const { title } = req.body;
 
   const editPost = postSchema.findByIdAndUpdate(req.params.id, {
