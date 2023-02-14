@@ -1,7 +1,8 @@
 import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { CreatingPostData, FetchPost } from "./Api";
+import { CreatingPostData, deletOne, FetchPost } from "./Api";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const PostData = () => {
   const queryClient = useQueryClient();
@@ -20,6 +21,10 @@ const PostData = () => {
     onSuccess: (data) => {
       queryClient.invalidateQueries(["post"]);
     },
+  });
+
+  const deleteData = useMutation({
+    mutationFn: deletOne,
   });
 
   const handleSubmit = () => {
@@ -62,38 +67,45 @@ const PostData = () => {
         Add Post
       </button>
       <br />
-      <br />
-      <br />
-      <br />
 
       <h2>All Posts</h2>
 
-      <div>
+      <Wrap>
         {getPost.isLoading ? <h1>Loading...</h1> : null}
         {getPost?.data?.map((props: any) => (
-          <Link to={`/detail/${props._id}`}>
-            <div
-              key={props?._id}
-              style={{
-                height: "70px",
-                width: "300px",
-                background: "#f1f1f1",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "10px",
-                border: "1px solid silver",
-              }}
-            >
+          <div
+            key={props?._id}
+            style={{
+              padding: "40px",
+              background: "#f1f1f1",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              margin: "10px",
+              border: "1px solid silver",
+            }}
+          >
+            <Link to={`/detail/${props._id}`}>
               <div>{props?.title}</div> <br />
               <div>{props?.description}</div> <br />
-              <button>delete</button>
-            </div>
-          </Link>
+            </Link>
+            <button onClick={deletOne}>delete</button>
+            <br />
+            <button>update</button>
+          </div>
         ))}
-      </div>
+      </Wrap>
     </div>
   );
 };
 
 export default PostData;
+
+const Wrap = styled.div`
+  height: 500px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  overflow-y: scroll;
+`;

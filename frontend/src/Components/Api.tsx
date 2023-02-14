@@ -13,6 +13,13 @@ export const FetchSinglePost = async (id: any) => {
     .get(`http://localhost:2001/api/getone/${id}`)
     .then((res) => res.data);
 };
+
+export const deletOne = async (id: any) => {
+  return axios
+    .get(`http://localhost:2001/api/delete/${id}`)
+    .then((res) => res.data);
+};
+
 export const CreatingPostData = async ({ title, description }: IData) => {
   return await axios
     .post("http://localhost:2001/api/post", {
