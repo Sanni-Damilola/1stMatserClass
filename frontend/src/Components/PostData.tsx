@@ -1,4 +1,7 @@
 import React from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { CreatingPostData, FetchPost } from "./Api";
+import { Link } from "react-router-dom";
 
 const PostData = () => {
   return (
