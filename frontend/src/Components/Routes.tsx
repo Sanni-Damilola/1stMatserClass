@@ -10,7 +10,7 @@ const Routes = () => {
       element: <PostData />,
     },
     {
-      path: "/detailpage",
+      path: "/detail/:id",
       element: <DetailPost />,
     },
   ]);
