@@ -21,6 +21,12 @@ app.post("/api/post", (req, res) => {
   res.status(201).json(creating);
 });
 
+app.all("/", (req, res) => {
+  res.status(200).json({
+    message: "up and running",
+  });
+});
+
 // get one post
 app.get("/api/getone/:id", (req, res) => {
   const getonePost = postSchema.findById(req.params.id);
@@ -50,7 +56,7 @@ app.delete("/api/getone/:id", (req, res) => {
 app.get("/api/getall", (req, res) => {
   const getAllPost = postSchema.find();
 
-  res.status(201).json(getAllPost);
+  res.status(200).json(getAllPost);
 });
 
 app.listen(port, () => {
