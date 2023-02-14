@@ -16,8 +16,8 @@ export const FetchSinglePost = async (id: any) => {
 
 export const deletOne = async (id: any) => {
   return axios
-    .get(`http://localhost:2001/api/delete/${id}`)
-    .then((res) => res.data);
+    .get(`localhost:2001/api/delete/63ebe1ddd47f423b4f812261`)
+    .then((res) => null);
 };
 
 export const CreatingPostData = async ({ title, description }: IData) => {

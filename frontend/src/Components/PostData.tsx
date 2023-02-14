@@ -25,9 +25,7 @@ const PostData = () => {
 
   const deleteData = useMutation({
     mutationFn: deletOne,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["post"]);
-    },
+   
   });
 
   console.log("delete", deleteData);
