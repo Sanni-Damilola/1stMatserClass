@@ -24,7 +24,7 @@ const PostData = () => {
 
   const handleSubmit = () => {
     posting.mutate({
-      myTitle: title,
+      title,
       description,
     });
   };
@@ -85,7 +85,8 @@ const PostData = () => {
                 border: "1px solid silver",
               }}
             >
-              <div>{props?.myTitle}</div>
+              <div>{props?.title}</div>
+              <div>{props?.description}</div>
             </div>
           </Link>
         ))}
