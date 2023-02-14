@@ -28,3 +28,9 @@ export const CreatingPostData = async ({ title, description }: IData) => {
     })
     .then((res) => res.data);
 };
+
+export const updatPost = async (id: any) => {
+  return await axios
+    .patch(`http://localhost:2001/api/update/${id}`)
+    .then((res) => res.data);
+};
