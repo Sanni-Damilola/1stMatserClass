@@ -16,10 +16,10 @@ mongoose.connect(url).then(() => {
 });
 
 // create a post
-app.post("/api/post", (req: Request, res: Response) => {
+app.post("/api/post", async (req: Request, res: Response) => {
   const { title, description } = req.body;
 
-  const creating = postSchema.create({
+  const creating = await postSchema.create({
     title,
     description,
   });
@@ -27,42 +27,42 @@ app.post("/api/post", (req: Request, res: Response) => {
   res.status(201).json(creating);
 });
 
-app.all("/", (req: Request, res: Response) => {
+app.all("/", async (req: Request, res: Response) => {
   res.status(200).json({
     message: "up and running",
   });
 }); // landing message
 
-app.get("/api/getone/:id", (req: Request, res: Response) => {
-  const getonePost = postSchema.findById(req.params.id);
+app.get("/api/getone/:id", async (req: Request, res: Response) => {
+  const getonePost = await postSchema.findById(req.params.id);
 
   res.status(201).json(getonePost);
 }); // get one post
 
-app.patch("/api/update/:id", (req: Request, res: Response) => {
+app.patch("/api/update/:id", async (req: Request, res: Response) => {
   const { title } = req.body;
 
-  const editPost = postSchema.findByIdAndUpdate(req.params.id, {
+  const editPost = await postSchema.findByIdAndUpdate(req.params.id, {
     title,
   });
 
   res.status(201).json(editPost);
 }); // edit one post
 
-app.delete("/api/deleteOne/:id", (req: Request, res: Response) => {
-  const deleteOne = postSchema.findByIdAndRemove(req.params.id);
+app.delete("/api/deleteOne/:id", async (req: Request, res: Response) => {
+  const deleteOne = await postSchema.findByIdAndRemove(req.params.id);
 
   res.status(201).json(deleteOne);
 }); // delete one post
 
-app.get("/api/getall", (req: Request, res: Response) => {
-  const getAllPost = postSchema.find();
+app.get("/api/getall", async (req: Request, res: Response) => {
+  const getAllPost = await postSchema.find();
 
   res.status(200).json(getAllPost);
 }); // getAll post
 
-app.delete("/api/deleteAll", (req: Request, res: Response) => {
-  const deleteAll = postSchema.deleteMany();
+app.delete("/api/deleteAll", async (req: Request, res: Response) => {
+  const deleteAll = await postSchema.deleteMany();
   res.status(200).json({
     message: "deleted All Data",
   });
