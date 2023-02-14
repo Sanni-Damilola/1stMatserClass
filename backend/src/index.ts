@@ -10,7 +10,7 @@ const app: Application = express();
 app.use(express.json()).use(cors());
 
 // create a post
-app.get("/api/post", (req, res) => {
+app.post("/api/post", (req, res) => {
   const { title, desc } = req.body;
 
   const creating = postSchema.create({
@@ -18,26 +18,51 @@ app.get("/api/post", (req, res) => {
     desc,
   });
 
-  res.status(201).json(creating)
+  res.status(201).json(creating);
 });
 
 // get one post
 app.get("/api/getone/:id", (req, res) => {
-
   const getonePost = postSchema.findById(req.params.id);
 
-  res.status(201).json(getonePost)
+  res.status(201).json(getonePost);
 });
 
 app.listen(port, () => {
   console.log("Done on", port);
 });
-// get one post
-app.get("/api/getone/:id", (req, res) => {
 
-  const getonePost = postSchema.findById(req.params.id);
+// edit one post
+app.patch("/api/getone/:id", (req, res) => {
+  const { title } = req.body;
 
-  res.status(201).json(getonePost)
+  const editPost = postSchema.findByIdAndUpdate(req.params.id, {
+    title,
+  });
+
+  res.status(201).json(editPost);
+});
+
+app.listen(port, () => {
+  console.log("Done on", port);
+});
+
+// delete one post
+app.delete("/api/getone/:id", (req, res) => {
+  const deleteOne = postSchema.findByIdAndDelete(req.params.id);
+
+  res.status(201).json(deleteOne);
+});
+
+app.listen(port, () => {
+  console.log("Done on", port);
+});
+
+// getAll post
+app.get("/api/getall", (req, res) => {
+  const getAllPost = postSchema.find();
+
+  res.status(201).json(getAllPost);
 });
 
 app.listen(port, () => {
