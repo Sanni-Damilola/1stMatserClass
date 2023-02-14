@@ -49,7 +49,7 @@ app.patch("/api/update/:id", async (req: Request, res: Response) => {
   res.status(201).json(editPost);
 }); // edit one post
 
-app.delete("/api/deleteOne/:id", async (req: Request, res: Response) => {
+app.delete("/api/delete/:id", async (req: Request, res: Response) => {
   const deleteOne = await postSchema.findByIdAndRemove(req.params.id);
 
   res.status(201).json(deleteOne);
