@@ -28,12 +28,11 @@ app.all("/", (req, res) => {
   });
 });
 
-// get one post
 app.get("/api/getone/:id", (req, res) => {
   const getonePost = postSchema.findById(req.params.id);
 
   res.status(201).json(getonePost);
-});
+}); // get one post
 
 app.patch("/api/update/:id", (req, res) => {
   const { title } = req.body;
