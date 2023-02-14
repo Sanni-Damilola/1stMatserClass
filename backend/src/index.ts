@@ -21,6 +21,7 @@ app.post("/api/post", (req, res) => {
   res.status(201).json(creating);
 });
 
+// landing data
 app.all("/", (req, res) => {
   res.status(200).json({
     message: "up and running",
@@ -35,7 +36,7 @@ app.get("/api/getone/:id", (req, res) => {
 });
 
 // edit one post
-app.patch("/api/getone/:id", (req, res) => {
+app.patch("/api/update/:id", (req, res) => {
   const { title } = req.body;
 
   const editPost = postSchema.findByIdAndUpdate(req.params.id, {
@@ -46,7 +47,7 @@ app.patch("/api/getone/:id", (req, res) => {
 });
 
 // delete one post
-app.delete("/api/getone/:id", (req, res) => {
+app.delete("/api/deleteOne/:id", (req, res) => {
   const deleteOne = postSchema.findByIdAndRemove(req.params.id);
 
   res.status(201).json(deleteOne);
@@ -58,6 +59,13 @@ app.get("/api/getall", (req, res) => {
 
   res.status(200).json(getAllPost);
 });
+
+app.delete("/api/deleteAll", (req, res) => {
+  const deleteAll = postSchema.deleteMany();
+  res.status(200).json({
+    message: "deleted All Data",
+  });
+}); // deleteing All Data
 
 app.listen(port, () => {
   console.log("Done on", port);
