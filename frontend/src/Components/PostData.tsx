@@ -7,7 +7,6 @@ import styled from "styled-components";
 const PostData = () => {
   const queryClient = useQueryClient();
 
-
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
 
@@ -94,7 +93,7 @@ const PostData = () => {
             </Link>
             <button onClick={deletOne}>delete</button>
             <br />
-            {}
+            {/* {props._id === props._id ? <input type="text" /> : null} */}
             <button>update</button>
           </div>
         ))}
