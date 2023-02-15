@@ -99,8 +99,16 @@ const PostData = () => {
             </Link>
             <button onClick={deletOne}>delete</button>
             <br />
-            {/* {props._id === props._id ? <input type="text" /> : null} */}
-            <button>update</button>
+            {props._id === props._id && show ? <input type="text" /> : null}
+            <br />
+            <button
+              onClick={() => {
+                toggle(props._id);
+                // console.log("this is the id", props._id);
+              }}
+            >
+              update
+            </button>
           </div>
         ))}
       </Wrap>
