@@ -35,6 +35,12 @@ const PostData = () => {
     });
   };
 
+  // update toggle input
+  const [show, setShow] = React.useState(false);
+  const toggle = (id: string) => {
+    setShow(!show);
+  };
+
   return (
     <div>
       <br />
