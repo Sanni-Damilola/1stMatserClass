@@ -37,6 +37,7 @@ const PostData = () => {
 
   // update toggle input
   const [show, setShow] = React.useState(false);
+
   const toggle = () => {
     setShow(!show);
   };
@@ -99,7 +100,9 @@ const PostData = () => {
             </Link>
             <button onClick={deletOne}>delete</button>
             <br />
-            {show && props._id ? <input type="text" /> : null}
+            {show && props._id ? (
+              <input defaultValue={props.title} type="text" />
+            ) : null}
             <br />
             <button
               onClick={() => {
