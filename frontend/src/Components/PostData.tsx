@@ -7,7 +7,6 @@ import styled from "styled-components";
 const PostData = () => {
   const queryClient = useQueryClient();
 
-  // update input toggle
 
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
